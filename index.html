@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ruang Belajar VAK</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1d2a44;--bg:#f6f7fb;--panel:#fff;--line:#d5daea;--mute:#55627f;--v:#2f6fed;--a:#c97a00;--k:#13885f;--ok:#13885f;--okbg:#ddf3ea;--no:#c23a52;--nobg:#fbe3e7;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e8ecf8;--bg:#10162a;--panel:#192140;--line:#303b66;--mute:#a3afd1;--v:#7aa2ff;--a:#f0b04a;--k:#4fd1a0;--ok:#4fd1a0;--okbg:#14382d;--no:#ff7d93;--nobg:#3b1d25}}
+:root[data-theme="dark"]{--ink:#e8ecf8;--bg:#10162a;--panel:#192140;--line:#303b66;--mute:#a3afd1;--v:#7aa2ff;--a:#f0b04a;--k:#4fd1a0;--ok:#4fd1a0;--okbg:#14382d;--no:#ff7d93;--nobg:#3b1d25}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.65 Lexend,system-ui,sans-serif}
+body.big{font-size:19px}
+h1,h2,h3{line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(1.9rem,5vw,3rem);font-weight:700}h2{font-size:1.5rem;font-weight:700}h3{font-size:1.1rem;font-weight:600}
+a{color:var(--v)}
+:focus-visible{outline:3px solid var(--a);outline-offset:2px}
+.wrap{max-width:980px;margin:0 auto;padding:0 18px}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+header .wrap{display:flex;gap:6px 16px;align-items:center;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+header b{margin-right:auto}
+header a{text-decoration:none;color:var(--ink);font-size:.9rem;padding:4px 2px;border-bottom:3px solid transparent}
+header a.on{border-color:var(--v)}
+main{padding:28px 0 60px;min-height:70vh}
+.btn,.chip{font:inherit;cursor:pointer;border-radius:8px;border:2px solid var(--ink);background:transparent;color:var(--ink);padding:8px 16px;min-height:44px}
+.btn.p{background:var(--ink);color:var(--bg)}
+.btn.sm{min-height:36px;padding:4px 12px;font-size:.88rem}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.pref{display:flex;flex-direction:column;gap:2px;text-align:left;border-width:2px;flex:1;min-width:150px}
+.pref[aria-pressed=true]{background:var(--panel)}
+.pref.v{border-color:var(--v)}.pref.a{border-color:var(--a)}.pref.k{border-color:var(--k)}.pref.c{border-color:var(--mute)}
+.pref[aria-pressed=true]::after{content:"✓ Dipilih";font-size:.8rem}
+.muted{color:var(--mute);font-size:.92rem}
+.bar{height:10px;background:var(--line);border-radius:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--k)}
+.steps{display:flex;gap:6px;margin:10px 0}.steps span{flex:1;height:8px;border-radius:4px;background:var(--line)}.steps span.d{background:var(--k)}
+.mod{display:flex;flex-direction:column}
+.stage{margin:18px 0;border-left:5px solid var(--line);padding-left:16px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.tabs button{font:inherit;cursor:pointer;border:2px solid var(--line);background:var(--panel);color:var(--ink);padding:6px 14px;border-radius:8px;min-height:44px}
+.tabs button[aria-selected=true]{border-color:var(--c);box-shadow:inset 0 -4px 0 var(--c)}
+.t-v{--c:var(--v)}.t-a{--c:var(--a)}.t-k{--c:var(--k)}
+.pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:.85rem;border:1px solid var(--line)}
+.pill.m{background:var(--okbg);color:var(--ok);border:1px solid var(--ok)}.pill.t{background:var(--nobg);color:var(--no);border:1px dashed var(--no)}
+svg text{fill:var(--ink);font:13px Lexend,sans-serif}
+svg .ln{stroke:var(--mute);stroke-width:2;fill:none}svg .lt{stroke:var(--no);stroke-dasharray:5 4}
+svg .nd{fill:var(--panel);stroke:var(--v);stroke-width:2}
+svg .lm{fill:var(--okbg);stroke:var(--ok);stroke-width:2}svg .ll{fill:var(--nobg);stroke:var(--no);stroke-width:2;stroke-dasharray:5 4}
+.sim .g{margin:8px 0}
+.mt{display:flex;height:22px;border-radius:5px;overflow:hidden;border:1px solid var(--line)}
+.mt i{display:flex;align-items:center;justify-content:center;font-size:.78rem;font-style:normal;color:#fff}
+.mt .m{background:var(--k)}.mt .t{background:var(--no)}
+.slot{min-height:56px;border:2px dashed var(--line);border-radius:8px;padding:8px;margin:8px 0}
+.slot ol{margin:0;padding-left:1.3em}
+.item{display:inline-block;margin:3px;padding:6px 12px;border:1px solid var(--k);border-radius:8px;background:var(--panel);cursor:grab;font-size:.92rem}
+.fb{margin-top:8px;padding:8px 12px;border-radius:8px;font-size:.92rem}
+.fb.ok{background:var(--okbg);color:var(--ok)}.fb.no{background:var(--nobg);color:var(--no)}
+.q{margin:14px 0}.q button.o{display:block;width:100%;text-align:left;margin:5px 0;font:inherit;cursor:pointer;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 12px;min-height:44px}
+textarea{width:100%;min-height:110px;font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px}
+.ring{width:96px;height:96px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:1.3rem;background:conic-gradient(var(--k) calc(var(--p)*1%),var(--line) 0)}
+.ring span{background:var(--bg);width:72px;height:72px;border-radius:50%;display:grid;place-items:center}
+@media(prefers-reduced-motion:no-preference){.mt i{transition:flex .4s}}
+footer{border-top:1px solid var(--line);padding:20px 0;color:var(--mute);font-size:.85rem}
+html{-webkit-text-size-adjust:100%}
+body{overflow-x:hidden}
+#nv{display:contents}
+button,.item,.tabs button{touch-action:manipulation}
+@media(max-width:700px){#nv{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--panel);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}#nv a{flex:1;text-align:center;padding:12px 4px;min-height:48px;border-bottom:0;border-top:4px solid transparent;font-size:.82rem}#nv a.on{border-top-color:var(--v)}body{padding-bottom:64px}header b{font-size:.95rem}.tabs button{flex:1}.btn.sm{min-height:44px}.row .btn.p{flex:1;justify-content:center}h1{font-size:1.7rem}}
+@media(min-width:900px){.wrap{max-width:1120px}#mod{display:grid;grid-template-columns:1fr 1fr;column-gap:32px;align-items:start}#mod .stage:last-child{grid-column:1/-1}.stage{margin:12px 0}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><b>Ruang Belajar VAK</b>
+<nav id="nv" aria-label="Menu utama"><a href="#/" data-r="">Beranda</a><a href="#/kursus" data-r="kursus">Kursus</a><a href="#/praktik" data-r="praktik">Praktik</a><a href="#/progres" data-r="progres">Progres</a></nav>
+<button class="btn sm" id="big" aria-pressed="false">Teks besar</button></div></header>
+<main><div class="wrap" id="app"></div></main>
+<footer><div class="wrap">Semua jalur (lihat, dengar, coba) selalu terbuka. Pilihan cara belajar hanya mengatur urutan tampilan. Progres tersimpan di perangkat ini.</div></footer>
+
+<script>
+const $=(s,e=document)=>e.querySelector(s);
+let S={pref:'c',done:{},quiz:null,notes:'',big:false};
+try{Object.assign(S,JSON.parse(localStorage.getItem('vak')||'{}'))}catch(e){}
+const save=()=>{try{localStorage.setItem('vak',JSON.stringify(S))}catch(e){}};
+const mark=k=>{if(!S.done[k]){S.done[k]=1;save();upd()}};
+const KEYS=['pemantik','jelajah','praktik','cek'],LBL={pemantik:'Pemantik',jelajah:'Jelajah',praktik:'Praktik',cek:'Cek paham'};
+const pct=()=>Math.round(KEYS.filter(k=>S.done[k]).length/KEYS.length*100);
+function upd(){document.querySelectorAll('[data-prog]').forEach(e=>{e.firstElementChild.style.width=pct()+'%'});document.querySelectorAll('.steps').forEach(e=>e.innerHTML=KEYS.map(k=>`<span class="${S.done[k]?'d':''}" title="${LBL[k]}"></span>`).join(''))}
+document.body.classList.toggle('big',S.big);
+$('#big').setAttribute('aria-pressed',S.big);
+$('#big').onclick=()=>{S.big=!S.big;document.body.classList.toggle('big',S.big);$('#big').setAttribute('aria-pressed',S.big);save()};
+
+const PREFS=[['v','Mulai dengan melihat','Diagram dan infografis lebih dulu'],['a','Mulai dengan mendengar','Penjelasan suara lebih dulu'],['k','Mulai dengan mencoba','Praktik langsung di atas'],['c','Campuran','Urutan standar']];
+const prefBox=()=>`<div class="row" role="group" aria-label="Cara belajar">${PREFS.map(p=>`<button class="btn pref ${p[0]}" data-pref="${p[0]}" aria-pressed="${S.pref===p[0]}"><b>${p[1]}</b><span class="muted">${p[2]}</span></button>`).join('')}</div>`;
+function bindPref(){document.querySelectorAll('[data-pref]').forEach(b=>b.onclick=()=>{S.pref=b.dataset.pref;save();document.querySelectorAll('[data-pref]').forEach(x=>x.setAttribute('aria-pressed',x===b))})}
+
+/* ---------- data ---------- */
+const NARASI='Bayangkan komputer harus menebak apakah anak-anak jadi main bola. Ia tidak menebak sembarangan. Ia mengajukan pertanyaan satu per satu. Pertama, bagaimana cuacanya? Kalau mendung, semua kartu berlabel main, jadi cabang itu murni. Kalau cerah, ia bertanya lagi tentang kelembapan. Kalau hujan, datanya masih campur, sehingga tebakannya mengikuti jumlah terbanyak. Pohon seperti ini disebut pohon keputusan.';
+const ATTR={Cuaca:[['cerah',2,3],['mendung',4,0],['hujan',3,2]],Suhu:[['panas',5,3],['sejuk',4,2]],Kelembapan:[['tinggi',3,3],['normal',6,2]]};
+const gini=(m,t)=>{const n=m+t;return n?1-(m/n)**2-(t/n)**2:0};
+const wg=g=>g.reduce((s,x)=>s+(x[1]+x[2])*gini(x[1],x[2]),0)/14;
+const ORDER=['Hitung kartu main dan tidak di akar','Coba pisahkan dengan tiap atribut','Pilih atribut yang paling murni','Lanjutkan cabang yang masih campur','Uji dengan kartu baru'];
+const SHUF=[3,0,4,2,1];
+const QZ=[['Atribut mana yang paling murni memisahkan kartu di akar?',[['Cuaca','Tepat. Cuaca menghasilkan campuran terendah (0,34) dan cabang mendung sudah murni.',1],['Suhu','Belum. Suhu menyisakan campuran tinggi (0,46) di kedua cabangnya.',0],['Kelembapan','Belum. Kelembapan (0,43) lebih baik dari suhu, tetapi kalah dari cuaca.',0]]],
+['Mengapa cabang hujan tetap campur?',[['Pohonnya salah gambar','Bukan. Pohonnya benar; datanya yang terbatas.',0],['Data tidak punya atribut yang bisa memisahkannya','Tepat. Suhu dan kelembapan sama-sama masih bercampur di kartu hujan, jadi tebakan mengikuti jumlah terbanyak.',1],['Ada kartu yang hilang','Bukan. Semua 14 kartu terpakai.',0]]],
+['Pohon yang menghafal semua kartu latih lalu gagal pada kartu baru disebut ...',[['Overfitting','Tepat. Model terlalu cocok dengan data latih dan lemah pada data baru.',1],['Algoritma','Bukan. Algoritma adalah langkah penyelesaian masalah secara umum.',0],['Abstraksi','Bukan. Abstraksi berarti menyaring detail yang tidak perlu.',0]]]];
+
+/* ---------- components ---------- */
+function sim(el){
+ el.innerHTML=`<p class="muted">Pilih atribut untuk memisahkan 14 kartu (9 main, 5 tidak). Makin kecil angka campuran, makin murni.</p><div class="row">${Object.keys(ATTR).map(a=>`<button class="btn sm" data-a="${a}">${a}</button>`).join('')}</div><div id="sr"></div>`;
+ el.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{const a=b.dataset.a,g=ATTR[a];
+  $('#sr',el).innerHTML=g.map(x=>`<div class="g"><b>${x[0]}</b> <span class="muted">${x[1]} main · ${x[2]} tidak</span><div class="mt" aria-hidden="true">${x[1]?`<i class="m" style="flex:${x[1]}">${x[1]}</i>`:''}${x[2]?`<i class="t" style="flex:${x[2]}">${x[2]}</i>`:''}</div></div>`).join('')+`<p><b>Campuran setelah pemisahan: ${wg(g).toFixed(2)}</b></p>`;mark('jelajah')});
+}
+function order(el){
+ let ans=[];
+ const draw=(msg)=>{el.innerHTML=`<p class="muted">Urutkan langkah membangun pohon keputusan. Seret ke kotak, atau ketuk langkah untuk menambah; ketuk lagi di kotak untuk melepas.</p><div id="pool">${SHUF.filter(i=>!ans.includes(i)).map(i=>`<span class="item" draggable="true" tabindex="0" role="button" data-i="${i}">${ORDER[i]}</span>`).join('')}</div><div class="slot" id="slot" aria-label="Urutanmu"><ol>${ans.map(i=>`<li><span class="item" tabindex="0" role="button" data-x="${i}">${ORDER[i]}</span></li>`).join('')}</ol></div><div class="row"><button class="btn sm p" id="chk">Periksa</button><button class="btn sm" id="rs">Ulangi</button></div>${msg||''}`;
+  el.querySelectorAll('[data-i]').forEach(b=>{const add=()=>{ans.push(+b.dataset.i);draw()};b.onclick=add;b.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();add()}};b.ondragstart=e=>e.dataTransfer.setData('text',b.dataset.i)});
+  el.querySelectorAll('[data-x]').forEach(b=>{const rm=()=>{ans=ans.filter(i=>i!==+b.dataset.x);draw()};b.onclick=rm;b.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();rm()}}});
+  const s=$('#slot',el);s.ondragover=e=>e.preventDefault();s.ondrop=e=>{e.preventDefault();const i=+e.dataTransfer.getData('text');if(!ans.includes(i)){ans.push(i);draw()}};
+  $('#rs',el).onclick=()=>{ans=[];draw()};
+  $('#chk',el).onclick=()=>{if(ans.length<5){draw('<div class="fb no">Masih ada langkah yang belum dipasang.</div>');return}
+   const ok=ans.every((v,i)=>v===i);if(ok)mark('praktik');
+   draw(ok?'<div class="fb ok">Urutan benar. Kamu sudah menyusun cara kerja pohon keputusan.</div>':`<div class="fb no">Belum tepat: ${ans.filter((v,i)=>v!==i).length} langkah salah tempat. Ingat, hitung dulu, baru pisahkan, lalu uji.</div>`)};
+ };draw();
+}
+function quiz(el){
+ let sc=0,n=0;
+ el.innerHTML=QZ.map((q,i)=>`<div class="q"><b>${i+1}. ${q[0]}</b>${q[1].map((o,j)=>`<button class="o" data-q="${i}" data-o="${j}">${o[0]}</button>`).join('')}<div id="f${i}" aria-live="polite"></div></div>`).join('')+'<div id="qs"></div>';
+ el.querySelectorAll('.o').forEach(b=>b.onclick=()=>{const i=+b.dataset.q,o=QZ[i][1][+b.dataset.o];
+  el.querySelectorAll(`[data-q="${i}"]`).forEach(x=>x.disabled=true);
+  $('#f'+i,el).innerHTML=`<div class="fb ${o[2]?'ok':'no'}">${o[2]?'Benar. ':'Belum tepat. '}${o[1]}</div>`;sc+=o[2];n++;
+  if(n===QZ.length){S.quiz=Math.max(S.quiz||0,sc);save();$('#qs',el).innerHTML=`<p><b>Skor: ${sc} dari ${QZ.length}.</b> ${sc>=3?'Kamu tuntas.':'Ulangi jalur Jelajah, lalu coba lagi.'} <button class="btn sm" id="rq">Ulangi kuis</button></p>`;if(sc>=3)mark('cek');$('#rq',el).onclick=()=>quiz(el)}});
+}
+function notes(el){
+ el.innerHTML=`<textarea id="nt" aria-label="Catatan saya" placeholder="Hari ini saya paham ...&#10;Yang masih membingungkan ...&#10;Saya ingin mencoba ...">${S.notes||''}</textarea><div class="row"><span class="muted" id="ns">Tersimpan otomatis di perangkat ini.</span></div>`;
+ $('#nt',el).oninput=e=>{S.notes=e.target.value;save()};
+}
+
+/* ---------- views ---------- */
+const V={
+'':()=>`<h1>Belajar dengan melihat, mendengar, dan mencoba</h1><p class="muted" style="max-width:60ch">Setiap materi disajikan lewat tiga jalur sekaligus. Semuanya terbuka untuk semua orang; pilihanmu hanya menentukan jalur mana yang tampil lebih dulu.</p><h2 style="margin-top:28px">Kamu ingin mulai dari mana?</h2>${prefBox()}<div class="row"><a class="btn p" href="#/modul" style="text-decoration:none;display:inline-flex;align-items:center">Mulai modul</a></div>
+<div class="box" style="margin-top:24px"><h3>Lanjutkan belajar</h3><p class="muted">Pohon Keputusan: ${pct()}% selesai</p><div class="bar" data-prog><i style="width:${pct()}%"></i></div></div>`,
+kursus:()=>`<h1>Daftar kursus</h1><div class="grid"><div class="box"><h3>Koding dan Kecerdasan Artifisial, Kelas X</h3><p class="muted">Modul tersedia: Pohon Keputusan (3 jalur, kuis, catatan).</p><div class="bar" data-prog><i style="width:${pct()}%"></i></div><div class="row"><a class="btn p sm" href="#/modul">Buka modul</a></div></div><div class="box"><h3>Berpikir Komputasional</h3><p class="muted">Segera hadir.</p></div><div class="box"><h3>Literasi Digital dan Etika AI</h3><p class="muted">Segera hadir.</p></div></div>`,
+modul:()=>`<p class="muted">Kursus KKA › Modul: Pohon Keputusan</p><h1>Pohon Keputusan: cara komputer menebak</h1><p><b>Tujuan:</b> membangun pohon keputusan sederhana dari data dan menjelaskan mengapa model bisa salah pada data baru. Estimasi 30 menit.</p><div class="steps"></div>
+<div class="mod" id="mod">
+<section class="stage" style="order:1"><h2>1. Pemantik</h2><p>Kartu data: <b>cerah · sejuk · kelembapan tinggi</b>. Menurutmu, anak-anak jadi main bola?</p><div class="row"><button class="btn sm" data-g="1">Main</button><button class="btn sm" data-g="0">Tidak</button></div><div id="pg" aria-live="polite"></div></section>
+<section class="stage" style="order:2"><h2>2. Jelajah</h2><div class="tabs t-x" role="tablist" id="tabs"></div><div id="tp"></div></section>
+<section class="stage" style="order:3"><h2>3. Praktik</h2><div id="ord"></div></section>
+<section class="stage" style="order:4"><h2>4. Cek paham</h2><div id="qz"></div><h3 style="margin-top:20px">Catatan saya</h3><div id="nt0"></div></section></div>
+<h3>Cara belajar</h3>${prefBox()}`,
+praktik:()=>`<h1>Area praktik</h1><p class="muted">Semua latihan ada di sini, tanpa harus membaca materi dulu.</p><div class="box"><h2>Simulasi: pisahkan kartu</h2><div id="sim"></div></div><div class="box" style="margin-top:14px"><h2>Susun langkah</h2><div id="ord"></div></div><div class="box" style="margin-top:14px"><h2>Kuis cepat</h2><div id="qz"></div></div>`,
+progres:()=>`<h1>Dashboard progres</h1><div class="grid"><div class="box"><h3>Modul Pohon Keputusan</h3><div class="row"><div class="ring" style="--p:${pct()}"><span>${pct()}%</span></div><div class="muted">${KEYS.map(k=>`${S.done[k]?'✓':'○'} ${LBL[k]}`).join('<br>')}</div></div></div><div class="box"><h3>Skor kuis terbaik</h3><p style="font-size:2rem;margin:0">${S.quiz==null?'–':S.quiz+' / '+QZ.length}</p><p class="muted">Ambang tuntas: 3 dari 3. Boleh mengulang tanpa penalti.</p></div><div class="box"><h3>Lencana</h3><p>${S.done.pemantik?'<span class="pill m">Penebak pertama</span> ':''}${S.done.praktik?'<span class="pill m">Pohon pertamamu</span> ':''}${S.done.cek?'<span class="pill m">Modul tuntas</span>':''}${!Object.keys(S.done).length?'<span class="muted">Belum ada. Mulai dari modul.</span>':''}</p></div></div><h2 style="margin-top:24px">Catatan saya</h2><div id="nt0"></div>`
+};
+const TREE=`<svg viewBox="0 0 640 250" role="img" aria-label="Pohon keputusan: Cuaca. Mendung berarti main. Cerah ditanyakan kelembapan: tinggi tidak, normal main. Hujan campur, tebakan main." style="width:100%;max-width:640px"><path class="ln" d="M320 40V60H100V90M320 60V90M320 60H540V90"/><rect class="nd" x="270" y="8" width="100" height="32" rx="8"/><text x="320" y="29" text-anchor="middle">Cuaca?</text><text x="170" y="82" text-anchor="middle">cerah</text><text x="335" y="82">mendung</text><text x="500" y="82" text-anchor="middle">hujan</text>
+<rect class="nd" x="40" y="90" width="120" height="32" rx="8"/><text x="100" y="111" text-anchor="middle">Kelembapan?</text><rect class="lm" x="270" y="90" width="100" height="32" rx="8"/><text x="320" y="111" text-anchor="middle">✓ Main</text><rect class="lm" x="480" y="90" width="120" height="32" rx="8"/><text x="540" y="111" text-anchor="middle">✓ Main (campur)</text>
+<path class="ln lt" d="M60 122V160M140 122V160" style="stroke-dasharray:0"/><path class="ln lt" d="M60 122V160"/><path class="ln" d="M140 122V160"/><text x="48" y="148" text-anchor="end">tinggi</text><text x="152" y="148">normal</text>
+<rect class="ll" x="10" y="160" width="100" height="32" rx="8"/><text x="60" y="181" text-anchor="middle">✗ Tidak</text><rect class="lm" x="95" y="160" width="90" height="32" rx="8" style="transform:translateX(50px)"/><text x="190" y="181" text-anchor="middle">✓ Main</text>
+<text x="10" y="225">Hijau tegas = main · merah putus-putus = tidak · 3 main + 2 tidak di cabang hujan</text></svg>`;
+function tabs(){
+ const order={v:['v','a','k'],a:['a','v','k'],k:['k','v','a'],c:['v','a','k']}[S.pref];
+ const T={v:['Lihat','Peta pohon keputusan. Warna dan garis menunjukkan label: hijau tegas untuk main, merah putus-putus untuk tidak.'+TREE+'<p class="muted">Cabang mendung murni. Cabang cerah dipisah lagi dengan kelembapan. Cabang hujan tetap campur.</p>'],
+ a:['Dengar',`<p>Dengarkan penjelasan singkat, lalu jelaskan ulang dengan kata-katamu sendiri.</p><div class="row"><button class="btn sm p" id="spk">▶ Bacakan penjelasan</button><button class="btn sm" id="stp">■ Berhenti</button></div><details><summary>Transkrip</summary><p>${NARASI}</p></details>`],
+ k:['Coba','<div class="sim" id="sim"></div>']};
+ const tb=$('#tabs');tb.innerHTML=order.map((k,i)=>`<button role="tab" class="t-${k}" aria-selected="${i===0}" data-k="${k}">${T[k][0]}</button>`).join('');
+ const show=k=>{tb.querySelectorAll('button').forEach(b=>b.setAttribute('aria-selected',b.dataset.k===k));$('#tp').innerHTML=T[k][1];
+  if(k==='k')sim($('#sim'));
+  if(k==='a'){$('#spk').onclick=()=>{if(!('speechSynthesis' in window)){$('#spk').insertAdjacentHTML('afterend','<span class="muted"> Perangkat ini tidak mendukung suara. Baca transkrip.</span>');return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(NARASI);u.lang='id-ID';speechSynthesis.speak(u);mark('jelajah')};$('#stp').onclick=()=>speechSynthesis&&speechSynthesis.cancel()}
+  if(k==='v')mark('jelajah')};
+ tb.querySelectorAll('button').forEach(b=>b.onclick=()=>{try{speechSynthesis.cancel()}catch(e){}show(b.dataset.k)});show(order[0]);
+}
+function route(){
+ try{speechSynthesis.cancel()}catch(e){}
+ const r=(location.hash.replace(/^#\/?/,'')||'');const k=V[r]!==undefined?r:'';
+ $('#app').innerHTML=V[k]();
+ document.querySelectorAll('header a').forEach(a=>a.classList.toggle('on',a.dataset.r===k));
+ bindPref();
+ if(k==='modul'){
+  tabs();order_();quiz($('#qz'));notes($('#nt0'));
+  const o={v:['1','2','3','4'],a:[],k:[]};
+  if(S.pref==='k'){$('#mod').children[2].style.order=1;$('#mod').children[1].style.order=2;$('#mod').children[0].style.order=0}
+  document.querySelectorAll('[data-g]').forEach(b=>b.onclick=()=>{$('#pg').innerHTML=`<div class="fb ${b.dataset.g==='0'?'ok':'no'}">${b.dataset.g==='0'?'Tepat, kartu itu berlabel Tidak.':'Kartu itu berlabel Tidak.'} Komputer menebak lewat pertanyaan berurutan tentang cuaca dan kelembapan. Lanjut ke Jelajah.</div>`;mark('pemantik')});
+  document.querySelectorAll('[data-pref]').forEach(b=>b.addEventListener('click',()=>route()));
+ }
+ if(k==='praktik'){sim($('#sim'));order_();quiz($('#qz'))}
+ if(k==='progres')notes($('#nt0'));
+ upd();window.scrollTo(0,0);
+}
+function order_(){order($('#ord'))}
+window.addEventListener('hashchange',route);route();
+</script>
+</body>
+</html>
